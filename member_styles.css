@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #263238;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  background: #123b66;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #67d5ff;
+}
+
+.members {
+  padding: 60px 0 80px;
+  text-align: center;
+}
+
+.members h1 {
+  font-size: 32px;
+  color: #123b66;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #718096;
+  margin-bottom: 40px;
+}
+
+.member-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.member-card {
+  background: white;
+  padding: 28px 20px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(25, 55, 90, 0.08);
+  border: 1px solid #e8edf4;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(25, 55, 90, 0.15);
+}
+
+.member-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #d9edff;
+  margin-bottom: 18px;
+}
+
+.member-card h2 {
+  font-size: 20px;
+  color: #123b66;
+  margin-bottom: 5px;
+}
+
+.role {
+  color: #1685c5;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 14px;
+  color: #667085;
+}
+
+footer {
+  background: #123b66;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .member-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .members {
+    padding: 40px 0;
+  }
+
+  .members h1 {
+    font-size: 26px;
+  }
+
+  .member-list {
+    grid-template-columns: 1fr;
+  }
+
+  .member-card {
+    max-width: 350px;
+    width: 100%;
+    margin: auto;
+  }
+}
