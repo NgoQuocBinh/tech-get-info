@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #123b66;
+  --primary-dark: #0d2c4d;
+  --background: #f4f7fb;
+  --text: #263238;
+  --muted: #718096;
+  --border: #e8edf4;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav a:not(.logo) {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #67d5ff;
+}
+
+main {
+  flex: 1;
+}
+
+.page {
+  padding: 45px 0 65px;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  color: #1685c5;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+h1 {
+  color: var(--primary);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.intro p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.info-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(25, 55, 90, 0.07);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.info-card:hover {
+  border-color: #b9d9f5;
+  box-shadow: 0 9px 25px rgba(25, 55, 90, 0.12);
+}
+
+.card-toggle {
+  width: 100%;
+  min-height: 125px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  background: white;
+  color: var(--primary);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.card-toggle:hover {
+  background: #f8fbff;
+}
+
+.card-toggle:focus-visible {
+  outline: 3px solid #1685c5;
+  outline-offset: -3px;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.arrow {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font-size: 23px;
+  transition: transform 0.3s;
+}
+
+.card-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.card-content p {
+  overflow: hidden;
+  min-height: 0;
+  margin: 0;
+  padding: 0 24px;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.25s, padding 0.35s;
+}
+
+
+.info-card.active {
+  border-color: #1685c5;
+  box-shadow: 0 10px 28px rgba(18, 59, 102, 0.15);
+}
+
+.info-card.active .card-content {
+  grid-template-rows: 1fr;
+}
+
+.info-card.active .card-content p {
+  padding: 0 24px 24px;
+  opacity: 1;
+}
+
+.info-card.active .arrow {
+  transform: rotate(180deg);
+}
+
+
+footer {
+  margin-top: auto;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0;
+    gap: 12px;
+  }
+
+  .nav a:not(.logo) {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .page {
+    padding: 35px 0 45px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card-toggle {
+    min-height: 105px;
+    padding: 20px;
+  }
+
+  .info-card.active .card-content p {
+    padding: 0 20px 20px;
+  }
+}
+
+.card-inner {
+  padding: 0 24px 24px;
+}
+
+.card-inner h3 {
+  color: #123b66;
+  font-size: 16px;
+  margin: 18px 0 6px;
+}
+
+.card-inner p,
+.card-inner li {
+  color: #5f6f82;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.card-inner p {
+  margin: 0 0 12px;
+}
+
+.card-inner ul {
+  padding-left: 22px;
+}
+
+.info-card.active .card-content {
+  display: block;
+}
+
+.info-card:not(.active) .card-inner {
+  display: none;
+}
+
+.card-toggle {
+  cursor: pointer;
+}
+
+.card-toggle:focus-visible {
+  outline: 3px solid #1685c5;
+  outline-offset: -3px;
+}
+
+@media (max-width: 600px) {
+  .card-inner {
+    padding: 0 20px 20px;
+  }
+}
